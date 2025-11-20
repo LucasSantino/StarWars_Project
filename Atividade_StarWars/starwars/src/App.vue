@@ -1,32 +1,33 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { RouterLink, RouterView, useRouter} from 'vue-router'
+import { computed } from 'vue'
+import { RouterView, useRouter } from 'vue-router'
 
-const router = useRouter();
+const router = useRouter()
 
-const buttonRouteLabel = computed(()=>
-   router.currentRoute.value.name === 'HomeCharacter'? 'Personagens Favoritos' : 'Todos os Personagens'
-);
+const buttonRouteLabel = computed(() =>
+  router.currentRoute.value.name === 'HomeCharacter'
+    ? 'Personagens Favoritos'
+    : 'Todos os Personagens'
+)
 
 const changePage = () => {
-  if(router.currentRoute.value.name === 'HomeCharacter'){
-    router.push('/FavoriteCharacters');
-  }
-  else{
+  if (router.currentRoute.value.name === 'HomeCharacter') {
+    router.push('/FavoriteCharacters')
+  } else {
     router.push('/')
   }
- 
 }
 </script>
 
 <template>
-  <button @click="changePage"> {{ buttonRouteLabel}}</button>
-  
+  <button @click="changePage">
+    {{ buttonRouteLabel }}
+  </button>
+
   <RouterView />
 </template>
 
 <style scoped>
-
 header {
   line-height: 1.5;
   max-height: 100vh;
