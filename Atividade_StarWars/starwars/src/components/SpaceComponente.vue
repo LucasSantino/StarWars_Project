@@ -2,7 +2,7 @@
 import { Space } from '@/models/Character';
 import CharacterComponente from './CharacterComponente.vue';
 
-const props = defineProps({ 
+defineProps({ 
   space: { type: Space, required: true }
 });
 </script>
